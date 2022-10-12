@@ -1,31 +1,16 @@
 package co.edu.uptc.entity;
 
-public class Student {
+import java.time.LocalDateTime;
+import java.util.Calendar;
 
-    private int id;
-    private char name;
+public class Client extends Person{
+
     private String paymentPoint;
     private Kitchenware kitchenware;
+    private LocalDateTime time;
 
-    public Student(int id, char name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public char getName() {
-        return name;
-    }
-
-    public void setName(char name) {
-        this.name = name;
+    public Client(String name) {
+        super(name);
     }
 
     public String getPaymentPoint() {
@@ -44,11 +29,17 @@ public class Student {
         this.kitchenware = kitchenware;
     }
 
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name=" + name +
+        return "Student{" + getName() +
                 ", paymentPoint='" + paymentPoint + '\'' +
                 ", kitchenware=" + kitchenware +
                 '}';

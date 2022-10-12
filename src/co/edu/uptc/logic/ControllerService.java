@@ -1,22 +1,21 @@
 package co.edu.uptc.logic;
 
-import co.edu.uptc.entity.Kitchenware;
-import co.edu.uptc.entity.Student;
-import co.edu.uptc.models.Pile;
+import co.edu.uptc.entity.Client;
+import co.edu.uptc.entity.Service;
 
-import java.util.Queue;
+import java.time.LocalTime;
 
-public class Service {
+public class ControllerService {
 
-    Queue<Student> students;
-    Pile<Kitchenware> kitchen;
+    Service service;
+    private final char name = 'P';
 
     //TODO enter student and add queue
-    public void addStudentQueue(Student student){
+    public void addStudentQueue(Client student){
 
     }
     //TODO return true if enter student is first in queue
-    public boolean isFirst(Student student){
+    public boolean isFirst(Client student){
         return false;
     }
 
@@ -26,12 +25,13 @@ public class Service {
     }
 
     //TODO: compare actual time with exitTime and set student name, remove student, remove kitchen
-    public void freeStudent(Student student){
+    public void freeStudent(Client student){
 
     }
 
     //TODO: first ask isFirst, then calculateServiceTime and finally freeStudent
-    public Student serveStudent(Student student){
+    public Client serveStudent(Client student){
+
         return null;
     }
 }
