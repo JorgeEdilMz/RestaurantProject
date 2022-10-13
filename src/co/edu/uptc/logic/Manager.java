@@ -27,12 +27,10 @@ public class Manager {
         return 0;
     }
 
-    //TODO
     private boolean isWaiting(){
         return false;
     }
 
-    //TODO verify components service
     private void startBusiness(){
 
     }
@@ -40,7 +38,6 @@ public class Manager {
     private void stopBusiness(){
 
     }
-    //TODO verify components service
     public void servePaymentPoint(){
 
     }
