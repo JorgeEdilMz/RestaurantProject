@@ -1,7 +1,7 @@
 package co.edu.uptc.entity;
 
 import java.time.LocalDateTime;
-import java.util.Calendar;
+
 
 public class Client extends Person{
 
@@ -33,8 +33,8 @@ public class Client extends Person{
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
-        this.time = time;
+    public void setTime(LocalDateTime localDate) {
+        this.time = localDate;
     }
 
     @Override

@@ -5,8 +5,6 @@ import co.edu.uptc.entity.PaymentPoint;
 import co.edu.uptc.entity.Service;
 import co.edu.uptc.entity.Client;
 
-import java.util.Queue;
-
 public class Manager {
 
     private Service service;
