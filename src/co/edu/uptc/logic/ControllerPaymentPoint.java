@@ -14,6 +14,7 @@ public class ControllerPaymentPoint {
     public ControllerPaymentPoint(String name) {
         paymentPoint = new PaymentPoint(name);
     }
+    
 
     //TODO: generate random number (5-15)
     public int calculateAttentionTime(){
@@ -35,6 +36,7 @@ public class ControllerPaymentPoint {
 
     public void pay(){
         financialFund += 2_800;
+        System.out.println("xd");
     }
 
     //TODO all
