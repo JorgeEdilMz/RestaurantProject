@@ -1,8 +1,5 @@
 package co.edu.uptc.entity;
 
-import co.edu.uptc.entity.Client;
-
-import java.time.LocalTime;
 
 public class PaymentPoint {
 
