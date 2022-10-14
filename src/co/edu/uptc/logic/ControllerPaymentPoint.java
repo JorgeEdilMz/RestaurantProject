@@ -3,8 +3,6 @@ package co.edu.uptc.logic;
 import co.edu.uptc.entity.Client;
 import co.edu.uptc.entity.PaymentPoint;
 
-import java.time.LocalTime;
-
 public class ControllerPaymentPoint {
 
     PaymentPoint paymentPoint;
@@ -14,7 +12,6 @@ public class ControllerPaymentPoint {
         return financialFund;
     }
 
-    boolean isAvailable;
 
     public ControllerPaymentPoint(String name) {
         paymentPoint = new PaymentPoint(name);
@@ -28,10 +25,8 @@ public class ControllerPaymentPoint {
     //     return false;
     // }
 
-    public LocalTime exitTime(){
-        return LocalTime.now().plusSeconds(calculateAttentionTime());
-    }
-    public Client freeStudent(Client student){
+    public Client freeClient(Client student) throws InterruptedException{
+        serveStudent();
         student.setPaymentPoint(paymentPoint.getName());
         return student;
     }
@@ -40,12 +35,9 @@ public class ControllerPaymentPoint {
         financialFund += 2_800;
     }
 
-    public Client serveStudent(Client student) throws InterruptedException {
-        Client client=null;
+    private void serveStudent() throws InterruptedException {
             Thread.sleep(this.calculateAttentionTime()* 1000L);
             pay();
-            client = freeStudent(student);
-        return client;
     }
 
 
