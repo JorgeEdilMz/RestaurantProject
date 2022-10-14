@@ -3,7 +3,7 @@ package co.edu.uptc.logic;
 import co.edu.uptc.SimpleList.SimpleList;
 import co.edu.uptc.entity.PaymentPoint;
 import co.edu.uptc.entity.Service;
-import co.edu.uptc.models.Pile;
+import co.edu.uptc.models.Queue;
 import co.edu.uptc.entity.Client;
 
 public class Manager {
@@ -42,7 +42,6 @@ public class Manager {
 
     }
 
-    //TODO while true
     public void initStart(){
 
     }
