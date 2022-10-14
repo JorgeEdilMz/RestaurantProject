@@ -3,6 +3,7 @@ package co.edu.uptc.logic;
 import co.edu.uptc.SimpleList.SimpleList;
 import co.edu.uptc.entity.PaymentPoint;
 import co.edu.uptc.entity.Service;
+import co.edu.uptc.models.Pile;
 import co.edu.uptc.entity.Client;
 
 public class Manager {
@@ -22,7 +23,6 @@ public class Manager {
         return null;
     }
 
-    //TODO: generate random number (5-10)
     public int calculateStudentTime(){
         return 0;
     }

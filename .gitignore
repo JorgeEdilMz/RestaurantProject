@@ -1,2 +1,4 @@
-#ignore libs
-*.jar
+# Default ignored files
+/shelf/
+/workspace.xml
+/.idea
