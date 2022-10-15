@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class Client extends Person{
 
     private String paymentPoint;
-    private Kitchenware kitchenware;
+    private String kitchenware;
     private LocalDateTime time;
 
     public Client(String name) {
@@ -21,11 +21,11 @@ public class Client extends Person{
         this.paymentPoint = paymentPoint;
     }
 
-    public Kitchenware getKitchenware() {
+    public String getKitchenware() {
         return kitchenware;
     }
 
-    public void setKitchenware(Kitchenware kitchenware) {
+    public void setKitchenware(String kitchenware) {
         this.kitchenware = kitchenware;
     }
 

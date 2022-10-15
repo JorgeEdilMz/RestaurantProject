@@ -2,35 +2,24 @@ package co.edu.uptc.entity;
 
 public class Kitchenware {
 
-    private char name;
-    private int id;
+    private String name;
 
-    public Kitchenware(char name, int id) {
+    public Kitchenware(String name) {
         this.name = name;
-        this.id = id;
     }
 
-    public char getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(char name) {
+    public void setName(String name) {
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override
     public String toString() {
         return "Kitchenware{" +
                 "name=" + name +
-                ", id=" + id +
                 '}';
     }
 }

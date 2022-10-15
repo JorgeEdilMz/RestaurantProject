@@ -1,15 +1,16 @@
 package co.edu.uptc.entity;
 
 import co.edu.uptc.models.Pile;
-
-import java.util.Queue;
+import co.edu.uptc.models.Queue;
 
 public class Service {
 
     Queue<Client> students;
-    Pile<Kitchenware> kitchen;
+    Pile<Kitchenware> lunchs;
 
     public Service() {
+        students = new Queue<Client>();
+        // lunchs = new Pile<Kitchenware>();
     }
 
     public Queue<Client> getStudents() {
@@ -20,11 +21,11 @@ public class Service {
         this.students = students;
     }
 
-    public Pile<Kitchenware> getKitchen() {
-        return kitchen;
-    }
+    // public Pile<Kitchenware> getLunchs() {
+    //     return lunchs;
+    // }
 
-    public void setKitchen(Pile<Kitchenware> kitchen) {
-        this.kitchen = kitchen;
-    }
+    // public void setLunchs(Pile<Kitchenware> kitchen) {
+    //     this.lunchs = kitchen;
+    // }
 }
