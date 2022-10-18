@@ -5,29 +5,26 @@ import co.edu.uptc.entity.PaymentPoint;
 
 public class ControllerPaymentPoint {
 
-    PaymentPoint paymentPoint;
+    private PaymentPoint paymentPoint;
     private double financialFund;
-    
-    public double getFinancialFund() {
-        return financialFund;
-    }
-
+    private boolean isFreeToUse;
 
     public ControllerPaymentPoint(String name) {
         paymentPoint = new PaymentPoint(name);
+        isFreeToUse=true;
     }
     
-
     public int calculateAttentionTime(){
         return (int) (Math.random()*10)+5;
     }
-    // private boolean isWaiting(){
-    //     return false;
-    // }
+
 
     public Client freeClient(Client student) throws InterruptedException{
+        isFreeToUse = false;
         serveStudent();
         student.setPaymentPoint(paymentPoint.getName());
+        isFreeToUse =true;
+        System.out.println("pase por aqui P"+student);
         return student;
     }
 
@@ -39,6 +36,10 @@ public class ControllerPaymentPoint {
             Thread.sleep(this.calculateAttentionTime()* 1000L);
             pay();
     }
-
-
+    public double getFinancialFund() {
+        return financialFund;
+    }
+    public boolean isFreeToUse() {
+        return isFreeToUse;
+    }
 }
