@@ -21,26 +21,29 @@ public class WaitingZone {
     }
 
     private void addStudentZone(Client student){
-        student.setTime(LocalDateTime.now().plusSeconds(calculateWalkTime()));
-        students.add(student);
+        if(student!=null){
+            student.setTime(LocalDateTime.now().plusSeconds(calculateWalkTime()));
+            students.add(student);
+        }
     }
     public Client freeClient(Client student){
         addStudentZone(student);
-        while(students.size()==0){
-            searchTimeOverClient();
-        }
-        System.out.println("pase por aqui W"+searchTimeOverClient());
         return searchTimeOverClient();
     }
+
     private Client searchTimeOverClient(){
         Client clientReady=null;
-        for (int j = 1; j <= students.size(); j++) {
-            LocalDateTime x = students.get(j).getTime();
-            if(LocalDateTime.now().getLong(ChronoField.SECOND_OF_MINUTE)<= x.getLong(ChronoField.SECOND_OF_MINUTE)){
-                clientReady = students.get(j);
-                students.remove(j);
-            }
-        }return clientReady;
+            if(students.size()!=0){
+                for (int j = 1; j <= students.size(); j++) {
+                    LocalDateTime x = students.get(j).getTime();
+                    if(LocalDateTime.now().getLong(ChronoField.SECOND_OF_MINUTE)>= x.getLong(ChronoField.SECOND_OF_MINUTE)){
+                        clientReady = students.get(j);
+                        students.remove(j);
+                    }
+                
+                }
+
+            }return clientReady;
     }
 }
 

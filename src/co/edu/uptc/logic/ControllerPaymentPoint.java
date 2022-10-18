@@ -1,5 +1,4 @@
 package co.edu.uptc.logic;
-
 import co.edu.uptc.entity.Client;
 import co.edu.uptc.entity.PaymentPoint;
 
@@ -19,15 +18,27 @@ public class ControllerPaymentPoint {
     }
 
 
-    public Client freeClient(Client student) throws InterruptedException{
+    public void freeClient(Client student) throws InterruptedException{
         isFreeToUse = false;
-        serveStudent();
         student.setPaymentPoint(paymentPoint.getName());
+        serveStudent();
         isFreeToUse =true;
-        System.out.println("pase por aqui P"+student);
-        return student;
     }
 
+    // public Client goToFreePayPoint(Client student) throws InterruptedException{
+    //     // Client next = students.getFirst().getInformation();
+    //     // students.removeFirst();
+    //     // Client served=null;
+    //     // boolean areFree=p1.isFreeToUse()||p2.isFreeToUse();
+    //     // while(!areFree){
+    //     //     areFree=true;
+    //     // }
+    //     Client served = student;
+    //     if(this.isFreeToUse()){
+    //         served =freeClient(student);
+    //     }
+    //     return served;
+    // }
     public void pay(){
         financialFund += 2_800;
     }

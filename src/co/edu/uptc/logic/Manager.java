@@ -15,19 +15,18 @@ public class Manager {
     private ControllerService cService;
     private Queue<Client> students;
     private Pile<Kitchenware> lunchs;
-    private int countStudent;
-    private int countLunchs;
+    private int countStudent=0;
+    private int countLunchs=0;
 
 
     public Manager() throws InterruptedException{
         students = new Queue<Client>();
         lunchs = new Pile<>();
-        cService = new ControllerService(lunchs,students);
+        cService = new ControllerService(lunchs);
         wZone = new WaitingZone();
         p1 = new ControllerPaymentPoint("P1");
         p2 = new ControllerPaymentPoint("P2");
-        countStudent=0;
-        countLunchs =0;
+
     }
     private void generateStudents(){
         Timer timer = new Timer();
@@ -36,7 +35,7 @@ public class Manager {
                 instanceClients();
             }
         };
-        timer.schedule(task, 20, calculateGenerationTime()*1000L);
+        timer.schedule(task, 20, calculateGenerationTime()*1000);
     }
 
     public void instanceClients(){
@@ -53,7 +52,7 @@ public class Manager {
                 instanceLunchs();
             }
         };
-        timer.schedule(task, 20, 5*1000L);
+        timer.schedule(task, 20, 5000);
     }
 
     public void instanceLunchs(){
@@ -70,35 +69,32 @@ public class Manager {
                 while(lunchs.getSize()==0){
                     generateLunchs();
                 }
-                System.out.println(students.getSize());
                 continueProgram();
             }else{
                 continueProgram();
             }
         }
     }
-    private Client continueProgram() throws InterruptedException{
-        Client finalC = cService.releaseClient(wZone.freeClient(goToFreePayPoint()));
-        System.out.println(finalC);
-        return finalC;
+    private void continueProgram() throws InterruptedException{
+        Client clientGoing = cService.releaseClient(wZone.freeClient(attend()));
+        if(clientGoing!=null){
+            System.out.println(clientGoing);
+        }
     }
-    private Client goToFreePayPoint() throws InterruptedException{
-        Client next = students.getFirst().getInformation();
+    private Client attend() throws InterruptedException{
+        clasificate();
+        Client goOut=students.getFirst().getInformation();
         students.removeFirst();
-        Client served=null;
-        boolean areFree=p1.isFreeToUse()||p2.isFreeToUse();
-        while(!areFree){
-            areFree=true;
-        }
-        if(p1.isFreeToUse()){
-            return p1.freeClient(next);
-        }else if(p2.isFreeToUse()){
-            return p2.freeClient(next);
-        }
-
-        return served;
+        return goOut;
     }
-
+    
+    private void clasificate() throws InterruptedException{
+        if(p1.isFreeToUse()){
+            p1.freeClient(students.getFirst().getInformation());
+        }else if(p2.isFreeToUse()){
+            p2.freeClient(students.getFirst().getInformation());
+        }
+    }
     // private void stopBusiness(){
 
     // }
